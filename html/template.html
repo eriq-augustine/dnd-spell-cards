@@ -2,22 +2,46 @@
    <head>
       <link rel="stylesheet" href="../../reset.css" type="text/css">
       <link rel="stylesheet" href="../../card.css" type="text/css">
+
+      <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+      <script type='text/javascript'>
+         'use strict';
+
+         // Inspiration: https://coderwall.com/p/_8jxgw/autoresize-text-to-fit-into-a-div-width-height
+         var autoSizeText = function() {
+            var resizeElements = $('.resize');
+            for (var i = 0; i < resizeElements.length; i++) {
+               var resizeElement = resizeElements[i];
+
+               while (resizeElement.scrollHeight > resizeElement.offsetHeight) {
+                  var newFontSize = (parseInt($(resizeElement).css('font-size').slice(0, -2)) - 1) + 'px';
+                  $(resizeElement).css('font-size', newFontSize);
+               }
+            }
+         };
+
+         $(document).ready(function() {
+            autoSizeText();
+         });
+      </script>
    </head>
    <body>
       <div class='card'>
          <div class='content'>
 
             <div class='header'>
-               <div class='level-area'>
-                  <div class='level'>
+               <div class='level'>
+                  <span>
                      __LEVEL__
-                  </div>
-                  <img class='school' src='../../images/school-symbols/__SCHOOL__-symbol.png' />
+                  </span>
                </div>
                <div class='name'>
                   <span>
                      __NAME__
                   </span>
+               </div>
+               <div class='school'>
+                  <img src='../../images/school-symbols/__SCHOOL__-symbol.png' />
                </div>
             </div>
 
@@ -72,22 +96,22 @@
                      </div>
                   </div>
                </div>
-               <div class='description'>
+               <div class='description resize'>
                   __DESCRIPTION__
                </div>
             </div>
 
             <div class='header flipped'>
-               <div class='level-area'>
-                  <div class='level'>
-                     __LEVEL__
-                  </div>
-                  <img class='school' src='../../images/school-symbols/__SCHOOL__-symbol.png' />
+               <div class='level'>
+                  __LEVEL__
                </div>
                <div class='name'>
                   <span>
                      __NAME__
                   </span>
+               </div>
+               <div class='school'>
+                  <img src='../../images/school-symbols/__SCHOOL__-symbol.png' />
                </div>
             </div>
 

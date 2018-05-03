@@ -92,30 +92,23 @@ body {
 
 .header {
    display: flex;
-   align-items: stretch;
+   align-items: center;
    height: 300px;
    border-bottom: 4px solid #c9ad6a;
    padding-bottom: 10px;
 }
 
-.level-area {
-   display: flex;
-   flex-direction: column;
-   justify-content: space-around;
-}
-
 .level {
-   font-size: 192px;
+   font-size: 256px;
    font-family: MrJeeves;
    text-align: center;
    color: #58180D;
-   height: 150px;
    position: relative;
    top: -20px;
 }
 
-.school {
-   width: 150px;
+.school img {
+   width: 200px;
 }
 
 .name {
@@ -154,7 +147,7 @@ body {
 .spell-content-row, .components {
    margin-bottom: 15px;
    font-family: ScalySans;
-   font-size: 48px;
+   font-size: 64px;
 }
 
 .spell-content-item {
@@ -201,10 +194,9 @@ body {
    background-color: rgba(250, 247, 234, 0.5);
    border-radius: 10px;
    box-shadow: 2px 2px 2px 2px #888888;
-   border: 15px solid rgba(255, 255, 255, 0);
-   overflow: hidden;
+   border: 10px solid rgba(255, 255, 255, 0);
 
-   font-size: 38px;
+   font-size: 45px;
 }
 
 .description p {

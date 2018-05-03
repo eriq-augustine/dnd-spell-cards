@@ -41,8 +41,19 @@ def escape(text)
    return CGI::escapeHTML(text)
 end
 
+def secretaryShortHand(text)
+   return text.gsub(/[aeiou]/i, '')
+end
+
+def skipWords(text)
+   words = text.split(/\s+/)
+   return words.values_at(*(words.each_index().select{|i| i.even?})).join(' ')
+end
+
 def buildDescription(spell)
    return spell[KEY_DESCRIPTION].map{|text| "<p>#{escape(text)}</p>"}.join("\n")
+   # return spell[KEY_DESCRIPTION].map{|text| "<p>#{escape(secretaryShortHand(text))}</p>"}.join("\n")
+   # return spell[KEY_DESCRIPTION].map{|text| "<p>#{escape(skipWords(text))}</p>"}.join("\n")
 end
 
 def buildCastingTime(spell)
@@ -146,7 +157,8 @@ def main(inPath)
       name = spell[KEY_NAME]
 
       # TEST
-      if (level.to_i() > 1)
+      if (level.to_i() != 2)
+      # if (name != 'Astral Projection')
          next
       end
 
